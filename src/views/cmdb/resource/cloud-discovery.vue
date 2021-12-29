@@ -174,7 +174,7 @@
               <el-select
                 v-model="ruleForm.resource_type"
                 size="small"
-                placeholder="请输入任务名称"
+                placeholder="请输入资源类型"
                 disabled
                 style="width: 100%"
               >
@@ -247,6 +247,7 @@ export default {
         name: [{ required: true, message: '请输入任务名称', trigger: 'blur' }],
         cloud_account: [{ required: true, message: '请选择账号名称', trigger: 'change' }],
         resource_model: [{ required: true, message: '请选择资源模型', trigger: 'change' }],
+        resource_type: [{ required: false, message: '请输入资源类型', trigger: 'blur' }],
         field_map: [{ required: true, message: '请输入字段映射', trigger: 'blur' }],
         region: [{ required: true, message: '请输入区域', trigger: 'change' }]
       }
@@ -338,6 +339,7 @@ export default {
         if (valid) {
           // 新建云账号
           if (this.dialogForm.status === 'create') {
+            this.ruleForm.resource_type = 1
             createCloudDiscovery(this.ruleForm).then(() => {
               this.getList()
               this.$message({
