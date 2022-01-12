@@ -391,6 +391,7 @@ export default {
       }
     },
     bindSubmit() {
+      console.log(this.bindData.models)
       if (this.bindData.models.list.length > 0 && this.bindData.asset.list.length > 0) {
         bindDataRelated(this.bindData).then(res => {
           this.distributionDialog = false

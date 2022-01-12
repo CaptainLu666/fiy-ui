@@ -130,7 +130,7 @@ import {
   createData,
   editData
 } from '@/api/cmdb/resource'
-  // import { treeselect } from '@/api/system/dept'
+// import { treeselect } from '@/api/system/dept'
 export default {
   // eslint-disable-next-line vue/require-prop-types
   props: {
@@ -230,7 +230,8 @@ export default {
               editData(this.fieldData.id, {
                 info_id: this.fieldData.info_id,
                 uuid: this.fieldData.uuid,
-                data: fieldDataValue
+                data: fieldDataValue,
+                info_name: this.modelName
               }).then(res => {
                 this.closeDialog()
                 this.$emit('getList')
